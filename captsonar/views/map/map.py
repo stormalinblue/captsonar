@@ -19,7 +19,7 @@ class MapWidget(QWidget):
         self.prob = ProbWidget(tracker)
         self.overlay = OverlayWidget()
 
-        self.setFixedSize(448, 448)
+        self.setMinimumSize(448, 448)
 
         self.grid.setParent(self)
         self.prob.setParent(self)

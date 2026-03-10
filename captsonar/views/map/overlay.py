@@ -18,8 +18,9 @@ class OverlayWidget(QWidget):
 
         w = self.width()
         h = self.height()
-        rad = w / 15
-        dashed_pen = QPen(QColor(255, 255, 255))
+        w_rad = w / 15
+        h_rad = h / 15
+        dashed_pen = QPen(QColor(255, 255, 255), 1)
         dashed_pen.setStyle(Qt.DashLine)
         painter.setPen(dashed_pen)
 
@@ -27,7 +28,7 @@ class OverlayWidget(QWidget):
             typing.cast(
                 array,
                 [
-                    QLineF(rad * index, 0, rad * index, h)
+                    QLineF(w_rad * index, 0, w_rad * index, h)
                     for index in range(1, 15)
                     if index % 5 != 0
                 ],
@@ -38,7 +39,7 @@ class OverlayWidget(QWidget):
             typing.cast(
                 array,
                 [
-                    QLineF(0, rad * index, w, rad * index)
+                    QLineF(0, h_rad * index, w, h_rad * index)
                     for index in range(1, 15)
                     if index % 5 != 0
                 ],
@@ -50,13 +51,19 @@ class OverlayWidget(QWidget):
         painter.drawLines(
             typing.cast(
                 array,
-                [QLineF(rad * index, 0, rad * index, h) for index in range(5, 15, 5)],
+                [
+                    QLineF(w_rad * index, 0, w_rad * index, h)
+                    for index in range(5, 15, 5)
+                ],
             )
         )
 
         painter.drawLines(
             typing.cast(
                 array,
-                [QLineF(0, rad * index, w, rad * index) for index in range(5, 15, 5)],
+                [
+                    QLineF(0, h_rad * index, w, h_rad * index)
+                    for index in range(5, 15, 5)
+                ],
             )
         )

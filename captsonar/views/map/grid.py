@@ -23,11 +23,12 @@ class GridWidget(QWidget):
         painter.translate(0, self.height())
         painter.scale(1, -1)
 
-        rad = self.width() / 15
+        w_rad = self.width() / 15
+        h_rad = self.height() / 15
 
         for x, y in np.ndindex(self.grid.shape):
             if self.grid[x, y]:
                 painter.setBrush(OBSTACLE_COLOR)
             else:
                 painter.setBrush(OCEAN_COLOR)
-            painter.drawRect(QRectF(x * rad, y * rad, rad, rad))
+            painter.drawRect(QRectF(x * w_rad, y * h_rad, w_rad, h_rad))
