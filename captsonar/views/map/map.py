@@ -6,16 +6,16 @@ from PyQt5.QtCore import QRect, Qt
 from PyQt5.QtGui import QColor, QPainter, QPen
 from PyQt5.QtWidgets import QWidget
 
-from .grid import GridWidget
 from .overlay import OverlayWidget
 from .prob import ProbWidget
+from .topo import TopoWidget
 
 
 class MapWidget(QWidget):
     def __init__(self, grid, tracker, parent=None):
         super().__init__(parent=parent)
 
-        self.grid = GridWidget(grid)
+        self.grid = TopoWidget(grid)
         self.prob = ProbWidget(tracker)
         self.overlay = OverlayWidget()
 

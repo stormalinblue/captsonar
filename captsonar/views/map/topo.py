@@ -10,7 +10,7 @@ OBSTACLE_COLOR = QColor("#54747e")
 BOUNDARY_COLOR = QColor(0, 0, 0)
 
 
-class GridWidget(QWidget):
+class TopoWidget(QWidget):
     def __init__(self, grid, parent=None):
         super().__init__(parent=parent)
         self.grid = grid
