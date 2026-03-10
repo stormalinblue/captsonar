@@ -32,11 +32,11 @@ class SignalRecorder(QWidget):
             layout.addWidget(button)
 
         self.silence_button = QPushButton("Silence")
-        self.silence_button.clicked.connect(lambda: self.on_surface(SilenceUpdate()))
+        self.silence_button.clicked.connect(lambda: self.on_update(SilenceUpdate()))
         layout.addWidget(self.silence_button)
 
         self.surface_button = QPushButton("Surface")
-        self.surface_button.clicked.connect(lambda: self.on_surface(SurfaceUpdate()))
+        self.surface_button.clicked.connect(lambda: self.on_update(SurfaceUpdate()))
         layout.addWidget(self.surface_button)
 
         self.drone_recorder = DroneRecorder()
